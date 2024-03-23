@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,11 @@ Route::get('/register', function () {
     return view('customer.account.register');
 });
 
-require __DIR__.'/auth.php';
+Route::prefix('products')->name('showProducts')->group(function () {
+    Route::get('/', [ProductController::class, 'getProducts']);
+    Route::get('/{id_categories}', [ProductController::class, 'getProducts']);
+});
+
+Route::get('product/detail/{id}', [ProductController::class, 'show'])->name('product-detail');
+
+require __DIR__ . '/auth.php';
