@@ -1,8 +1,13 @@
-{{-- <x-guest-layout> --}}
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        } */
         *{
             margin: 0;
             padding: 0;
@@ -11,7 +16,7 @@
         .login_container {
             width: 100%;
             display: flex;
-            height: 500px;
+            height: 650px;
             padding: 0 100px;
             margin-top: 20px;
             background-color: transparent;
@@ -47,6 +52,8 @@
             margin-bottom: 20px;
 
                 }
+
+
 
         .form_group {
             position: relative;
@@ -101,6 +108,8 @@
             display: block;
         }
 
+  
+
         .form_group button {
             background-color: #53cbfe;
             color: #fff;
@@ -142,38 +151,3 @@
         button a{
             display: block;
         }
-    </style>
-    <div class="login_container my-5">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Jbq-w6NLK1GVWCEZ3GVqlY71x82PbWXDr2JHG8Z0H_8zs54z" alt="Ảnh mẫu">
-        <div class="form_login">
-            <h2>Universe</h2>
-            <h3>Sign In to Universe</h3>
-            <div class="additional_buttons">
-                <button><i class="fab fa-google"></i> Sign in with Google</button>
-                <button><i class="far fa-envelope"></i> Sign in with Email</button>
-            </div>
-            <form class="login_form" action="{{ route('login') }}" method="POST">
-                @csrf
-                <div class="form_group">
-                    <x-input-label for="email" :value="__('')"  />
-                    <x-text-input id="email" class="form-control border-0 shadow" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" onfocus="clearPlaceholder(this)" placeholder="Email"/>
-                    <x-input-error :messages="$errors->get('email')" class="form-message text-danger" placeholder="" />
-                </div>
-                <div class="form_group">
-                    <x-input-label for="password" :value="__('')" />
-                    <x-text-input id="password" class="form-control border-0 shadow" type="password" name="password" required autocomplete="current-password" onfocus="clearPlaceholder(this)" placeholder="Password"  />
-                    <x-input-error :messages="$errors->get('password')" class="form-message text-danger" placeholder="" />
-                </div>
-                <div class="form_group">
-                    <button class="btn_login" type="submit">{{ __('Sign In') }}</button>
-                </div>
-                <div class="form_group">
-                    <button class="btn_register" type="button">
-                        <a href="{{ route('register') }}">{{ __('Sign Up Now') }}</a>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-    
-{{-- </x-guest-layout> --}}

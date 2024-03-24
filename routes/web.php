@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +38,22 @@ Route::get('/register', function () {
     return view('customer.account.register');
 });
 
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update/{itemId}', [CartController::class, 'update'])->name('cart.update');
+Route::get('/cart/remove/{itemId}', [CartController::class, 'remove'])->name('cart.remove');
+Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
 require __DIR__.'/auth.php';
+
+Route::prefix('customer')->group(function(){
+    Route::get('/about', [HomeController::class, 'about'])->name('about');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+});
+
+Route::prefix('admin')->group(function(){});
