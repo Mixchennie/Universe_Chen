@@ -23,7 +23,7 @@ class ProductController extends Controller
             ->get();
 
         // dd($products);
-        return view('layouts/customer/product/index', compact('products', 'categories'));
+        return view('customer/product/index', compact('products', 'categories'));
     }
 
     public function show($id)
@@ -32,6 +32,6 @@ class ProductController extends Controller
 
         $products = Product::take(6)->get();
 
-        return view('layouts/customer/product/detail', compact('product', 'products'));
+        return view('customer/product/detail', compact('product', 'products'));
     }
 }
