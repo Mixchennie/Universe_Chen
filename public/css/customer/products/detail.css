@@ -1,5 +1,5 @@
-.title{
-    display: flex;
+.title-detail{
+    text-align: center;
     align-items: center;
     justify-content: center;
 }
@@ -16,4 +16,28 @@
 h5 {
     color: white;
     text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-  }
+}
+
+.card-image {
+    position: relative;
+    width: 90%; /* Đảm bảo chiều rộng đã được thiết lập */
+    height: 400px; /* Chiều cao của phần tử cha */
+}
+
+.fw-bold{
+    font-weight: bold;
+}
+
+.card-infomation{
+    padding-left: 20px;
+}
+
+.recomment{
+    padding: 20px;
+    text-align: left;
+    padding-top: 70px;
+}
+
+.text-reconment{
+    color: black;
+}
