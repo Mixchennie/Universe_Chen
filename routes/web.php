@@ -61,13 +61,13 @@ Route::post('/cart/update/{itemId}', [CartController::class, 'update'])->name('c
 Route::get('/cart/remove/{itemId}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::prefix('customer')->group(function(){
+Route::prefix('customer')->group(function () {
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-
 });
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::prefix('admin')->group(function(){});
-
+Route::prefix('admin')->group(function () {
+});
